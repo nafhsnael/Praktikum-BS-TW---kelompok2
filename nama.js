@@ -1,11 +1,11 @@
 // ambil nama
 function getNama() {
-    let nama = document.getElementById("nama").value.trim();
+    const inputNama = document.getElementById("nama").value.trim();
 
-    if(nama === ""){
-        alert("Nama belum diisi 😠");
+    if (inputNama.length === 0) {
+        alert("Silakan isi nama terlebih dahulu");
         return null;
     }
 
-    return nama;
+    return inputNama;
 }
