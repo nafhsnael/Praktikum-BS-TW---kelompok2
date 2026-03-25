@@ -1,23 +1,33 @@
-document.getElementById("formData").addEventListener("submit", function(e){
+document.getElementById("formData").addEventListener("submit", (e) => {
     e.preventDefault();
 
-    let nama = getNama();
-    let kelas = getKelas();
-    let gender = document.querySelector('input[name="gender"]:checked');
+    // Mengambil data dengan variabel yang lebih ringkas
+    const nama = getNama();
+    const kelas = getKelas();
+    const genderElement = document.querySelector('input[name="gender"]:checked');
 
-    if(!gender){
-        alert("Gender belum dipilih ");
+    // Validasi gender menggunakan 'Guard Clause'
+    if (!genderElement) {
+        alert("Gender belum dipilih");
         return;
     }
 
-    if(nama && kelas){
-        document.getElementById("hasil").innerHTML = `
+    // Eksekusi jika data nama dan kelas tersedia
+    if (nama && kelas) {
+        const { value: gender } = genderElement; // Destructuring value
+
+        const templateHasil = `
             <div class="alert alert-success">
-                <b>Hasil Input</b><br>
-                Nama: ${nama} <br>
-                Kelas: ${kelas} <br>
-                Gender: ${gender.value}
+                <h5 class="alert-heading"><b>Hasil Input</b></h5>
+                <hr>
+                <p class="mb-0">
+                    <strong>Nama:</strong> ${nama} <br>
+                    <strong>Kelas:</strong> ${kelas} <br>
+                    <strong>Gender:</strong> ${gender}
+                </p>
             </div>
         `;
+
+        document.getElementById("hasil").innerHTML = templateHasil;
     }
 });
