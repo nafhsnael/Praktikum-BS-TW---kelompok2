@@ -1,4 +1,4 @@
-# 💖 Cute Form Project (Team Collaboration)
+# Cute Form Project (Team Collaboration)
 
 This project is a simple web-based form created as a team assignment using GitHub collaboration.
 
